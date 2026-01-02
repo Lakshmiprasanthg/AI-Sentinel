@@ -361,6 +361,3 @@ Need help? Check these resources:
 **Built with ❤️ for protecting user rights in the digital age**
 
 🚀 **Start analyzing legal documents now!**
-#   A I - S e n t i n e l  
- #   A I - S e n t i n e l  
- 
