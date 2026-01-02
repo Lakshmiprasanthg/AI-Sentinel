@@ -1,0 +1,333 @@
+/* ============================================
+   AI-SENTINEL: PROFESSIONAL AUDIT-TECH THEME
+   Command Center Design System
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Deep Slate Palette - Professional SaaS Standard */
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+
+  /* High-Contrast Risk System - Desaturated Traffic Light */
+  --risk-high-text: #991b1b;
+  --risk-high-bg: #fef2f2;
+  --risk-high-border: #fecaca;
+  
+  --risk-medium-text: #92400e;
+  --risk-medium-bg: #fffbeb;
+  --risk-medium-border: #fde68a;
+  
+  --risk-low-text: #166534;
+  --risk-low-bg: #f0fdf4;
+  --risk-low-border: #bbf7d0;
+
+  /* Accent Colors */
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--slate-50);
+  
+  /* Blueprint Grid Background */
+  background-image: 
+    radial-gradient(circle, var(--slate-300) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+code {
+  font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ============================================
+   GLASSMORPHISM - Apple-Style Depth
+   ============================================ */
+.glass-navbar {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.glass-navbar .MuiButton-root {
+  color: white !important;
+}
+
+.glass-navbar .MuiIconButton-root {
+  color: white !important;
+}
+
+.glass-navbar .MuiTypography-root {
+  color: white !important;
+}
+
+.glass-modal {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   AUDIT LEDGER LIST - System-Generated Feel
+   ============================================ */
+.audit-ledger-row {
+  font-family: 'JetBrains Mono', monospace;
+  border-left: 3px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.audit-ledger-row:hover {
+  border-left-color: var(--blue-500);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+}
+
+.audit-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.audit-timestamp {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--slate-500);
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   INTERACTIVE CARDS - Responsive Lift Effect
+   ============================================ */
+.stat-card {
+  border: 1px solid var(--slate-200);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  border-radius: 12px;
+}
+
+.stat-card:hover {
+  border-color: var(--blue-500);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SCANNING BEAM ANIMATION - Laser Document Scan
+   ============================================ */
+.scanning-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--slate-100);
+}
+
+.scanning-beam {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(59, 130, 246, 0.3), 
+    rgba(59, 130, 246, 0.8), 
+    rgba(59, 130, 246, 0.3), 
+    transparent);
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.8),
+    0 0 40px rgba(59, 130, 246, 0.4);
+  animation: scan 2.5s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   RISK BADGES - High-Contrast System
+   ============================================ */
+.risk-badge-high {
+  background: var(--risk-high-bg);
+  color: var(--risk-high-text);
+  border: 1px solid var(--risk-high-border);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.risk-badge-medium {
+  background: var(--risk-medium-bg);
+  color: var(--risk-medium-text);
+  border: 1px solid var(--risk-medium-border);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.risk-badge-low {
+  background: var(--risk-low-bg);
+  color: var(--risk-low-text);
+  border: 1px solid var(--risk-low-border);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================================
+   STICKY SUMMARY BAR - Always Visible Score
+   ============================================ */
+.sticky-summary {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  border-bottom: 2px solid var(--slate-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 16px 24px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ============================================
+   TRUST INDICATOR - System Status Light
+   ============================================ */
+.trust-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--slate-600);
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--slate-100);
+}
+
+.trust-light {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.8);
+  }
+}
+
+/* ============================================
+   PROGRESSIVE DISCLOSURE - View Reasoning Button
+   ============================================ */
+.disclosure-button {
+  color: var(--blue-600);
+  background: transparent;
+  border: 1px solid var(--blue-500);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.disclosure-button:hover {
+  background: var(--blue-600);
+  color: white;
+}
+
+.disclosure-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.disclosure-content.open {
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in;
+}
+
+/* ============================================
+   TYPOGRAPHY - Deep Slate & Visual Hierarchy
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--slate-900);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-secondary {
+  color: var(--slate-500);
+}
+
+.text-tertiary {
+  color: var(--slate-400);
+}
+
+/* ============================================
+   ICON CATEGORIZATION - Visual Grouping
+   ============================================ */
+.icon-privacy {
+  color: #8b5cf6;
+}
+
+.icon-financial {
+  color: #f59e0b;
+}
+
+.icon-legal {
+  color: #ef4444;
+}
