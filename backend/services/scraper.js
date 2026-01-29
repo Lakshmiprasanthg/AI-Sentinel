@@ -170,10 +170,10 @@ async function scrapeURL(url) {
     
     console.log(`🌐 Starting URL scraping: ${url}`);
     
-    // Check robots.txt
+    // Check robots.txt (non-blocking, just log warning)
     const robotsCheck = await checkRobotsTxt(url);
     if (!robotsCheck.allowed) {
-      throw new Error('Scraping this URL is disallowed by robots.txt');
+      console.warn('⚠️  Warning: robots.txt may disallow scraping this URL, proceeding anyway...');
     }
     
     // Try Cheerio first (faster)
