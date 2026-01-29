@@ -6,15 +6,15 @@ services:
     region: oregon
     plan: free
     rootDir: backend
-    buildCommand: npm install --legacy-peer-deps
+    buildCommand: npm install --legacy-peer-deps && npx puppeteer browsers install chrome
     startCommand: node server.js
     envVars:
       - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
-        value: false
+        value: true
       - key: PUPPETEER_EXECUTABLE_PATH
-        value: /usr/bin/chromium-browser
+        value: /opt/render/project/.cache/puppeteer/chrome/linux-*/chrome-linux*/chrome
       - key: PUPPETEER_CACHE_DIR
-        value: /opt/render/.cache/puppeteer
+        value: /opt/render/project/.cache/puppeteer
       - key: NODE_ENV
         value: production
       - key: PORT

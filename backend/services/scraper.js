@@ -110,7 +110,10 @@ async function scrapeWithPuppeteer(url) {
         '--single-process',
         '--disable-extensions'
       );
-      launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROME_BIN;
+      // Use puppeteer's bundled Chrome in production
+      if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+        launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
+      }
     }
     
     browser = await puppeteer.launch(launchOptions);
