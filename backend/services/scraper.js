@@ -88,11 +88,20 @@ async function scrapeWithPuppeteer(url) {
   try {
     console.log('🎭 Scraping with Puppeteer (dynamic content)...');
     
-    browser = await puppeteer.launch({
+    // Determine if we're in production (Render) or local environment
+    const isProduction = process.env.NODE_ENV === 'production';
+    
+    const launchOptions = {
       headless: 'new',
       args: [
         '--no-sandbox',
-        '--disable-setuid-sandbox',
+        '--disable-setuid-sandbox'
+      ]
+    };
+    
+    // Add production-specific args for Render
+    if (isProduction) {
+      launchOptions.args.push(
         '--disable-dev-shm-usage',
         '--disable-accelerated-2d-canvas',
         '--disable-gpu',
@@ -100,9 +109,11 @@ async function scrapeWithPuppeteer(url) {
         '--no-zygote',
         '--single-process',
         '--disable-extensions'
-      ],
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROME_BIN || puppeteer.executablePath(),
-    });
+      );
+      launchOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROME_BIN;
+    }
+    
+    browser = await puppeteer.launch(launchOptions);
     
     const page = await browser.newPage();
     
@@ -116,7 +127,7 @@ async function scrapeWithPuppeteer(url) {
     });
     
     // Wait a bit for dynamic content
-    await page.waitForTimeout(2000);
+    await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Extract text content
     const text = await page.evaluate(() => {
