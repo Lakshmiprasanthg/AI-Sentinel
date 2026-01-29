@@ -4,7 +4,7 @@
   "description": "Backend API for AI-Sentinel legal document auditor",
   "main": "server.js",
   "engines": {
-    "node": "18.x",
+    "node": "20.x",
     "npm": ">=9.0.0"
   },
   "scripts": {
